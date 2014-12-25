@@ -1,6 +1,6 @@
 #include <LinRealRecursiveSeq.h>
 
-#include <cmath>    // sqrt
+#include <cmath>    // abs, sqrt
 #include <vector>
 #include <fstream>  // ofstream
 #include <iostream> // cout
@@ -101,8 +101,8 @@ int main(){
         /***************/
 
         /* Absolute and relative errors */
-        fibo_NoRound_TmpAbs     = fib[k] - fiboSeqElem;
-        fibo_NoRound_TmpRel     = 1.0 - fiboSeqElem / fib[k];
+        fibo_NoRound_TmpAbs     = abs(fib[k] - fiboSeqElem);
+        fibo_NoRound_TmpRel     = abs(1.0 - fiboSeqElem / fib[k]);
 
         /* Absolute and relative averages of errors */
         fibo_NoRound_ErrAbsAv  += fibo_NoRound_TmpAbs;
@@ -122,8 +122,8 @@ int main(){
         /************/
 
         /* Absolute and relative errors */
-        fibo_Round_TmpAbs     = fib[k] - roundl(fiboSeqElem);
-        fibo_Round_TmpRel     = 1.0 - roundl(fiboSeqElem) / static_cast<double>(fib[k]);
+        fibo_Round_TmpAbs     = abs(fib[k] - roundl(fiboSeqElem));
+        fibo_Round_TmpRel     = abs(1.0 - roundl(fiboSeqElem) / static_cast<double>(fib[k]));
 
         /* Absolute and relative averages of errors */
         fibo_Round_ErrAbsAv  += fibo_Round_TmpAbs;

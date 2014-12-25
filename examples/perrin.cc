@@ -105,8 +105,8 @@ int main(){
         /***************/
 
         /* Absolute and relative errors */
-        perrin_NoRound_TmpAbs     = perrin[k] - perrinSeqElem;
-        perrin_NoRound_TmpRel     = 1.0 - perrinSeqElem / perrin[k];
+        perrin_NoRound_TmpAbs     = abs(perrin[k] - perrinSeqElem);
+        perrin_NoRound_TmpRel     = abs(1.0 - perrinSeqElem / perrin[k]);
 
         /* Absolute and relative averages of errors */
         perrin_NoRound_ErrAbsAv  += perrin_NoRound_TmpAbs;
@@ -126,8 +126,8 @@ int main(){
         /************/
 
         /* Absolute and relative errors */
-        perrin_Round_TmpAbs     = perrin[k] - roundl(perrinSeqElem);
-        perrin_Round_TmpRel     = 1.0 - roundl(perrinSeqElem) / static_cast<double>(perrin[k]);
+        perrin_Round_TmpAbs     = abs(perrin[k] - roundl(perrinSeqElem));
+        perrin_Round_TmpRel     = abs(1.0 - roundl(perrinSeqElem) / static_cast<double>(perrin[k]));
 
         /* Absolute and relative averages of errors */
         perrin_Round_ErrAbsAv  += perrin_Round_TmpAbs;

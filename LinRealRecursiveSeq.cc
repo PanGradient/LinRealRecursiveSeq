@@ -11,7 +11,7 @@
 
 /*
  * Default constructor
- * Makes a constant sequence of zeroes.
+ * Creates a constant sequence of zeroes.
  */
 LinRealRecursiveSeq::
   LinRealRecursiveSeq()

@@ -20,12 +20,13 @@
  * relation matrix representation:
  *
  *     [ S(k)     ]   [ 0    1    0    ... 0      0      ]   [ S(k-1)   ]
- *     [ S(k-1)   ]   [ 0    0    1    ... 0      0      ]   [ S(k-2)   ]
+ *     [ S(k+1)   ]   [ 0    0    1    ... 0      0      ]   [ S(k)     ]
  *     [   .      ]   [ .    .    .    .   .      .      ]   [   .      ]
  *     [   .      ] = [ .    .    .     .  .      .      ] * [   .      ]
  *     [   .      ]   [ .    .    .      . .      .      ]   [   .      ]
- *     [ S(k-N+2) ]   [ 0    0    0    ... 0      1      ]   [ S(k-N+1) ]
- *     [ S(k-N+1) ]   [ a(0) a(1) a(2) ... a(N-2) a(N-1) ]   [ S(k-N)   ]
+ *     [ S(k+N-3) ]   [ 0    0    0    ... 1      0      ]   [ S(k+N-4) ]
+ *     [ S(k+N-2) ]   [ 0    0    0    ... 0      1      ]   [ S(k+N-3) ]
+ *     [ S(k+N-1) ]   [ a(0) a(1) a(2) ... a(N-2) a(N-1) ]   [ S(k+N-2) ]
  *
  * Decomposing above matrix in a form C * diag( { m(0), ..., m(N-1) } ) * C^(-1) (m(i) being
  * its complex eigenvalues and C being a complex matrix build from eigenvectors) allows for
@@ -42,7 +43,7 @@ class LinRealRecursiveSeq
     public:
         /*
          * Default constructor
-         * Makes a constant sequence of zeroes.
+         * Creates a constant sequence of zeroes.
          */
         LinRealRecursiveSeq();
 
